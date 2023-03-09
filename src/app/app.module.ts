@@ -8,6 +8,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { SelectorComponent } from './components/selector/selector.component';
 import { OrganizerComponent } from './components/organizer/organizer.component';
 import { MomentPipe } from './components/shared/moment.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { MomentPipe } from './components/shared/moment.pipe';
   imports: [
     BrowserModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
