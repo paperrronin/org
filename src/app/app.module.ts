@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
@@ -16,7 +18,9 @@ import { MomentPipe } from './components/shared/moment.pipe';
     MomentPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,5 +10,8 @@ export class SelectorComponent  {
 
   constructor(public dateService:DateService) { }
 
+   public go(dir:number):any{
+    this.dateService.changeMonth(dir)
+   }
  
 }

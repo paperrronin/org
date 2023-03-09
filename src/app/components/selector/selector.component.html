@@ -1,1 +1,12 @@
-<span>{{dateService.date | async | moment}}</span>
+<div class="month">
+    <button mat-fab matTooltip="Primary" color="primary">
+        <mat-icon (click)="go(-1)">arrow_back_ios</mat-icon>
+    </button>
+
+    <span class="month_name"> {{dateService.date | async | moment}} </span>
+
+
+    <button mat-fab matTooltip="Primary" color="primary">
+        <mat-icon (click)="go(1)">arrow_forward_ios</mat-icon>
+    </button>
+</div>
