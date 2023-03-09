@@ -3,7 +3,7 @@ import * as moment from 'moment'
 
 @Pipe({
   name: 'moment',
-  pure: false
+  pure: false ///for dinamic rendering
 })
 export class MomentPipe implements PipeTransform {
 
