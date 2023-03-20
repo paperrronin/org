@@ -33,6 +33,7 @@ export class TasksService {
   }
 
   create(task: Task): Observable<Task> {
+    console.log(task)
     return this.http
       .post<CreateResponse>(`${TasksService.url}/${task.date}.json`, task)
       .pipe(map(res => {
