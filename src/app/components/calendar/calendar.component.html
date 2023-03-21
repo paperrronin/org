@@ -28,3 +28,15 @@
     </tr>
     </tbody>
   </table>
+
+  <mat-card>
+    <mat-calendar [(selected)]='selected'></mat-calendar>
+  </mat-card>
+  <p>Selected date: {{selected}}</p>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  

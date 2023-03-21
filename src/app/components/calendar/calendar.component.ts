@@ -20,6 +20,7 @@ interface Week {
 })
 export class CalendarComponent implements OnInit {
   public calendar: Week[] = [];
+  public selected: Date | null | undefined;
 
   constructor(public dateService:DateService) { }
 

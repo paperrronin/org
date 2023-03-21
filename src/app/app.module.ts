@@ -15,6 +15,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCardModule} from '@angular/material/card';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import * as moment from 'moment';
 
 @NgModule({
   declarations: [
@@ -35,9 +39,15 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatListModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatCardModule,
+    MatNativeDateModule,
+    MatMomentDateModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    { provide: 'moment', useValue: moment }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
