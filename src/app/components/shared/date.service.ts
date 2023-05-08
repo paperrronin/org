@@ -1,24 +1,18 @@
 import { Injectable } from '@angular/core';
-import * as moment from 'moment' 
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DateService {
 
-  public date:BehaviorSubject<moment.Moment> = new BehaviorSubject(moment()); 
+  public date:BehaviorSubject<Date> = new BehaviorSubject<Date>(new Date()); 
 
-  public changeMonth(dir:number):any{
-    const value = this.date.value.add(dir, 'month')
-    this.date.next(value)
+  public getDate(): Observable<Date> {
+    return this.date.asObservable();
   }
 
-  changeDate(date: moment.Moment) {
-    const value = this.date.value.set({
-      date: date.date(),
-      month: date.month()
-    })
-    this.date.next(value)
+  public setDate(date: Date): void {
+    this.date.next(date);
   }
 }

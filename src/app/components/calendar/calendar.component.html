@@ -1,42 +1,5 @@
-<table>
-    <thead>
-    <tr>
-      <th>Sun</th>
-      <th>Mon</th>
-      <th>Tue</th>
-      <th>Wen</th>
-      <th>Thu</th>
-      <th>Fri</th>
-      <th>Sat</th>
-    </tr>
-    </thead>
-  
-    <tbody>
-    <tr *ngFor="let week of calendar">
-      <td
-        *ngFor="let day of week.days"
-        [class.disabled]="day.disabled"
-        (click)="select(day.value)"
-      >
-        <span
-          [class.selected]="day.selected"
-          [class.active]="day.active"
-        >
-          {{ day.value | moment:'ddd DD' }}
-        </span>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
   <mat-card>
-    <mat-calendar [(selected)]='selected'></mat-calendar>
+    <mat-calendar [(selected)]="selectedDate" (click)= "checkInfo()"></mat-calendar>
   </mat-card>
-  <p>Selected date: {{selected}}</p>
-
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+  <p>Selected date: {{selectedDate }}</p>
   

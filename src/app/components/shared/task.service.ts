@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
-import * as moment from 'moment';
 
 export interface Task {
   id?: string
@@ -21,9 +20,9 @@ export class TasksService {
   constructor(private http: HttpClient) {
   }
 
-  load(date: moment.Moment): Observable<Task[]> {
+  load(date: Date): Observable<Task[]> {
     return this.http
-      .get<Task[]>(`${TasksService.url}/${date.format('DD-MM-YYYY')}.json`)
+      .get<Task[]>(`${TasksService.url}/${date}.json`)
       .pipe(map(tasks => {
         if (!tasks) {
           return []
