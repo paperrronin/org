@@ -14,5 +14,6 @@ export class DateService {
 
   public setDate(date: Date): void {
     this.date.next(date);
+    // console.log(this.date.value)
   }
 }
