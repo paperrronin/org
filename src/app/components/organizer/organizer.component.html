@@ -1,6 +1,7 @@
 <section>
 
     <main>
+        <p class="selectaed_date">SELECTED DATE: {{date$ | async | date:'dd.MM.yyyy'}}</p>
         <mat-list>
         <ul *ngIf="tasks.length; else noTasks">
             <mat-list-item class="task" *ngFor="let task of tasks; let i = index">

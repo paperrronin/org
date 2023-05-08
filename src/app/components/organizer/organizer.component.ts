@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { DateService } from '../shared/date.service';
 import {Task, TasksService} from '../shared/task.service';
 
@@ -13,11 +13,13 @@ import {Task, TasksService} from '../shared/task.service';
 export class OrganizerComponent implements OnInit {
 
   public form!: FormGroup ;
-  public tasks: Task[] = []
+  public tasks: Task[] = [];
 
   constructor(public dateService: DateService,
               public tasksService: TasksService) {
   }
+
+  public date$:Observable<Date> = this.dateService.date;
 
   ngOnInit() {
     this.dateService.date.pipe(
@@ -36,7 +38,7 @@ export class OrganizerComponent implements OnInit {
 
     const task: Task = {
       title,
-      // date: this.dateService.getDate()
+      date: this.dateService.getFormatDate()
     }
 
     this.tasksService.create(task).subscribe(task => {

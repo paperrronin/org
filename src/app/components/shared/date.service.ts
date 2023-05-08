@@ -10,7 +10,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 
 export class DateService {
   public date:BehaviorSubject<Date> = new BehaviorSubject<Date>(new Date()); 
-  public formatDate:string | null  = null;
+  public formatDate:string  = " ";
   public datePipe = new DatePipe('en-US');
   
 
@@ -18,9 +18,9 @@ export class DateService {
     return this.date.asObservable();
   }
 
-  public getFormatDate():string|null{
+  public getFormatDate():string{
     this.date.pipe(
-      map(value => this.datePipe.transform(value, 'yyyy-MM-dd'))
+      map(value => this.datePipe.transform(value, 'yyyy-MM-dd')??'')
     ).subscribe(formattedValue => {
       this.formatDate = formattedValue 
     });
