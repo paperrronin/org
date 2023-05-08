@@ -11,7 +11,7 @@ import { DateService } from '../shared/date.service';
 })
 export class CalendarComponent implements OnInit {
   public date$: Observable<Date> | undefined;
-  public selectedDate: Date | undefined;
+  public selectedDate:Date = new Date();
  
 
   constructor(public dateService:DateService) { }
@@ -22,14 +22,15 @@ export class CalendarComponent implements OnInit {
     this.date$.pipe().subscribe(value=>{
       this.selectedDate = value
     })
-    this.checkInfo();
   }
 
   public checkInfo(){
-    this.date$?.pipe().subscribe( value =>{
-      // this.selectedDate = value;
-      "Date in claendar component:" + console.log(value);
-      "SelectDate in claendar component:" + console.log(this.selectedDate)
+    this.dateService.setDate(this.selectedDate)
+    this.date$?.pipe().subscribe( () =>{
+      
+      console.log("Date in claendar component:" + this.date$);
+      console.log( "SelectDate in claendar component:" + this.selectedDate)
+      console.log("Date in date service:" + this.dateService.getDate());
     })
   }
 
