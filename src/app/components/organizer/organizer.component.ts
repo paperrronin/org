@@ -36,7 +36,7 @@ export class OrganizerComponent implements OnInit {
 
     const task: Task = {
       title,
-      // date: this.dateService.date
+      // date: this.dateService.getDate()
     }
 
     this.tasksService.create(task).subscribe(task => {
