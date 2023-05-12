@@ -4,7 +4,7 @@
         <p class="selectaed_date">SELECTED DATE: {{date$ | async | date:'dd.MM.yyyy'}}</p>
         <mat-list>
         <ul *ngIf="tasks.length; else noTasks">
-            <mat-list-item class="task" *ngFor="let task of tasks; let i = index">
+            <mat-list-item [@smoothUpdate]="animationState" class="task" *ngFor="let task of tasks; let i = index">
                 <mat-icon matListItemIcon>receipt_long</mat-icon>
                 <span>
                     <strong>{{i + 1}}</strong>
@@ -14,7 +14,7 @@
             </mat-list-item>
         </ul>
         <ng-template #noTasks>
-            <p class="text-center">No tasks yet...</p>
+            <p [@smoothUpdate]="animationState" class="text-center">No tasks yet...</p>
         </ng-template>
     </mat-list>
     </main>

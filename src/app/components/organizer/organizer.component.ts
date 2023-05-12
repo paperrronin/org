@@ -3,34 +3,62 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, switchMap } from 'rxjs';
 import { DateService } from '../shared/date.service';
 import {Task, TasksService} from '../shared/task.service';
+import { trigger, state, style, animate, transition, useAnimation } from '@angular/animations';
+
 
 
 @Component({
   selector: 'app-organizer',
   templateUrl: './organizer.component.html',
-  styleUrls: ['./organizer.component.scss']
+  styleUrls: ['./organizer.component.scss'],
+  animations: [
+    trigger('smoothUpdate', [
+      state('initial', style({
+        opacity: 1, 
+      })),
+      state('final', style({
+        opacity: 0,
+      })),
+      transition('initial => final', animate('300ms ease-out')),
+      transition('final => initial', animate('300ms ease-in'))
+    ])
+  ]
 })
-export class OrganizerComponent implements OnInit {
 
-  public form!: FormGroup ;
-  public tasks: Task[] = [];
+
+export class OrganizerComponent implements OnInit {
 
   constructor(public dateService: DateService,
               public tasksService: TasksService) {
   }
 
   public date$:Observable<Date> = this.dateService.date;
+  public form!: FormGroup ;
+  public tasks: Task[] = [];
+  public animationState:string = 'initial';
+  public value:number = 0;
+  
 
   ngOnInit() {
     this.dateService.date.pipe(
       switchMap(value => this.tasksService.load(this.dateService.getFormatDate()))
     ).subscribe(tasks => {
+      this.updateValue()
       this.tasks = tasks
     })
 
     this.form = new FormGroup({
       title: new FormControl('', Validators.required)
     })
+  }
+
+  updateValue() {
+    this.animationState = 'final';
+  
+      setTimeout(() => {
+        this.value++; 
+        this.animationState = 'initial';
+    }, 500);
   }
 
   submit() {
@@ -56,4 +84,6 @@ export class OrganizerComponent implements OnInit {
   }
 
 }
+
+
 
