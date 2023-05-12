@@ -20,7 +20,7 @@ export class DateService {
 
   public getFormatDate():string{
     this.date.pipe(
-      map(value => this.datePipe.transform(value, 'yyyy-MM-dd')??'')
+      map(value => this.datePipe.transform(value, 'dd-MM-yyyy')??'')
     ).subscribe(formattedValue => {
       this.formatDate = formattedValue 
     });
