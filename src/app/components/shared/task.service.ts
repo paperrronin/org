@@ -20,7 +20,7 @@ export class TasksService {
   constructor(private http: HttpClient) {
   }
 
-  load(date: Date): Observable<Task[]> {
+  load(date: string): Observable<Task[]> {
     return this.http
       .get<Task[]>(`${TasksService.url}/${date}.json`)
       .pipe(map(tasks => {

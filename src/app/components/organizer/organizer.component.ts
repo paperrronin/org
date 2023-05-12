@@ -23,7 +23,7 @@ export class OrganizerComponent implements OnInit {
 
   ngOnInit() {
     this.dateService.date.pipe(
-      switchMap(value => this.tasksService.load(value))
+      switchMap(value => this.tasksService.load(this.dateService.getFormatDate()))
     ).subscribe(tasks => {
       this.tasks = tasks
     })
