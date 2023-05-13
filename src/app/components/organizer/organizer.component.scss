@@ -3,15 +3,18 @@ mat-list {
 
     .task {
         display: flex;
-        align-items: center;
+        margin-bottom: 24px;
 
-
-
-        mat-icon {
-            margin-right: 5px;
+        .task_content {
+            width: 80%;
+            display: flex;
+            align-items: flex-start;
+            mat-icon {
+                margin-right: 5px;
+            }
         }
 
-        button {
+        .rmv_btnon {
             margin-left: 25px;
         }
     }
@@ -23,8 +26,13 @@ mat-list {
     justify-content: space-between;
 }
 
-.selectaed_date{
+.selectaed_date {
     display: flex;
     justify-content: center;
     font-size: 24px;
 }
+
+::ng-deep .mat-list-item-content{
+    width: 100% ;
+    justify-content: space-between ;
+  }
