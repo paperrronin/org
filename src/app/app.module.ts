@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 
@@ -7,7 +8,6 @@ import { AppComponent } from './app.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { OrganizerComponent } from './components/organizer/organizer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,10 +24,9 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     MatInputModule,
     MatFormFieldModule,
