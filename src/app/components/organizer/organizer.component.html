@@ -26,8 +26,8 @@
         <div class="create_wrap">
             <mat-form-field appearance="fill" (ngSubmit)="submit()" [formGroup]="form">
                 <mat-label>Write your task</mat-label>
-                <!-- <input matInput type="text" formControlName="title"> -->
-                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="title"></textarea>
+                <!-- <input matInput type="text" formControlName="title" > -->
+                <textarea matInput formControlName="task"></textarea>
             </mat-form-field>
 
             <button type="submit" mat-flat-button color="primary" (click)="submit()"

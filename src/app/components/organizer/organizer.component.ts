@@ -48,7 +48,7 @@ export class OrganizerComponent implements OnInit {
     })
 
     this.form = new FormGroup({
-      title: new FormControl('', Validators.required)
+      task: new FormControl('', Validators.required)
     })
   }
 
