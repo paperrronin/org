@@ -5,15 +5,15 @@
         <mat-list class="task_list">
             <ul *ngIf="tasks.length; else noTasks">
                 <mat-list-item [@smoothUpdate]="animationState" class="task" *ngFor="let task of tasks; let i = index">
-                    <div class="task_content">
-                        <mat-icon matListItemIcon>receipt_long</mat-icon>
-                        <span>
+                    <div class="task_content_wrapper">
+                        <div class="task_content">
+                            <mat-icon matListItemIcon>receipt_long</mat-icon>
                             <strong>{{i + 1}}</strong>
-                            {{task.title}}
-                        </span>
-                    </div>
+                            <span class="text_task">{{task.title}}</span>
+                        </div>
 
-                    <button class="rmv_btn" mat-flat-button color="warn" (click)="remove(task)">Remove</button>
+                        <button class="rmv_btn" mat-flat-button color="warn" (click)="remove(task)">Remove</button>
+                    </div>
                 </mat-list-item>
             </ul>
             <ng-template #noTasks>
@@ -27,7 +27,7 @@
             <mat-form-field appearance="fill" (ngSubmit)="submit()" [formGroup]="form">
                 <mat-label>Write your task</mat-label>
                 <!-- <input matInput type="text" formControlName="title" > -->
-                <textarea matInput formControlName="task"></textarea>
+                <textarea matInput formControlName="title"></textarea>
             </mat-form-field>
 
             <button type="submit" mat-flat-button color="primary" (click)="submit()"
