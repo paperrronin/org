@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+
 
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
@@ -24,6 +25,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
