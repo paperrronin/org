@@ -2,6 +2,7 @@
 
     <main>
         <p class="selectaed_date">SELECTED DATE: {{date$ | async | date:'dd.MM.yyyy'}}</p>
+        
         <mat-list class="task_list">
             <ul *ngIf="tasks.length; else noTasks">
                 <mat-list-item [@smoothUpdate]="animationState" class="task" *ngFor="let task of tasks; let i = index">
