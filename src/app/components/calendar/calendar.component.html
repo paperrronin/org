@@ -1,7 +1,4 @@
   <mat-card>
-    <mat-calendar [@transformPanel]="animation" [(selected)]="selectedDate" (click)="updateDate()">
-      <!-- <mat-calendar-header [@transformPanel]="animation" (click)="changeheight()"></mat-calendar-header> -->
+    <mat-calendar [@transformPanel]="animation" #picker [(selected)]="selectedDate" (click)="updateDate()">
     </mat-calendar>
   </mat-card>
-  
-  
